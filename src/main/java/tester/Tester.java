@@ -35,7 +35,7 @@ public class Tester {
 			
 			if (input.equals("1")) {
 				System.out.print("\nPlease specify filename of blockchain: ");
-				input = "C:\\Users\\jnguy\\eclipse-workspace\\InsuranceAppBackend\\src\\tester\\" + scanner.nextLine();
+				input = scanner.nextLine();
 				System.out.println("\nSpecified " + input + "\n");
 				blockchain = new Blockchain(input);
 				blockchainLoaded = true;
@@ -46,19 +46,22 @@ public class Tester {
 				}
 				else {
 					System.out.print("\nPlease specify filename of claim: ");
-					input = "C:\\Users\\jnguy\\eclipse-workspace\\InsuranceAppBackend\\src\\tester\\" + scanner.nextLine();
+					input = scanner.nextLine();
 					System.out.println("Specified " + input + "\n");
 					Claim test = new Claim(input);
-					Block block = new Block("","",test.toHash());
-					System.out.println(blockchain.blockIsUnique(block) 
-							? "Record is unique!\n" : "Record is not unique!\n");
+					Block block = new Block(test, blockchain.getLastHash());
+					if (blockchain.addAndCheckUnique(block) != true) {
+						System.out.println("Added! But not unique.\n");
+					} else {
+						System.out.println("Added! Unique.\n");
+					}
 				}
 				
 			} else if (input.equals("3")) {
 				if (blockchainLoaded == false) {
 					System.out.println("\nExisting blockchain not loaded! Will create new blockchain.");
 					System.out.print("\nPlease specify filename of claim: ");
-					input = "C:\\Users\\jnguy\\eclipse-workspace\\InsuranceAppBackend\\src\\tester\\" + scanner.nextLine();
+					input = scanner.nextLine();
 					System.out.println("\nSpecified " + input + "\n");
 					blockchain = new Blockchain();
 					Claim claim = new Claim(input);
@@ -68,22 +71,22 @@ public class Tester {
 					System.out.println("Added to new blockchain!\n");
 				}
 				else {
-					System.out.print("Please specify filename of claim: ");
-					input = "C:\\Users\\jnguy\\eclipse-workspace\\InsuranceAppBackend\\src\\tester\\" + scanner.nextLine();
+					System.out.print("\nPlease specify filename of claim: ");
+					input = scanner.nextLine();
 					System.out.println("Specified " + input + "\n");
 					Claim claim = new Claim(input);
 					Block block = new Block(claim, blockchain.getLastHash());
 					if (blockchain.addAndCheckUnique(block) != true) {
-						System.out.println("Added! But not unique.");
+						System.out.println("Added! But not unique.\n");
 					} else {
-						System.out.println("Added! Unique.");
+						System.out.println("Added! Unique.\n");
 					}
 				}
 				
 			} else if (input.equals("4")) {
 				if (blockchainLoaded == true) {
 					System.out.print("\nPlease specify filename to save as: ");
-					input = "C:\\Users\\jnguy\\eclipse-workspace\\InsuranceAppBackend\\src\\tester\\" + scanner.nextLine();
+					input = scanner.nextLine();
 					FileWriter fileOut = new FileWriter(input);
 					fileOut.append(blockchain.fileOutput());
 					fileOut.flush();

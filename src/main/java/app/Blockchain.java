@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Blockchain {
-	private ArrayList<Block> blockchain;
+	public ArrayList<Block> blockchain;
 	
 	public Blockchain() {
 		this.blockchain = new ArrayList<>();
@@ -67,6 +67,7 @@ public class Blockchain {
 		}
 		return "";
 	}
+        
 	
 	public String fileOutput() {
 		String toReturn = "";
