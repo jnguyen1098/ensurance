@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import app.*;
 
-public class Tester {
+public class EnsuranceCLI {
 
 	public static void main(String[] args) throws IOException {
 		

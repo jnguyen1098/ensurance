@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jnguy
  */
-public class InsuranceAppUI extends javax.swing.JFrame {
+public class EnsuranceUI extends javax.swing.JFrame {
 
     boolean blockchainLoaded = false;
 
@@ -36,7 +36,7 @@ public class InsuranceAppUI extends javax.swing.JFrame {
     /**
      * Creates new form InsuranceAppUI
      */
-    public InsuranceAppUI() {
+    public EnsuranceUI() {
         initComponents();
     }
 
@@ -63,7 +63,6 @@ public class InsuranceAppUI extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(654, 392));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Ensurance"), "Ensurance"));
 
@@ -173,7 +172,7 @@ public class InsuranceAppUI extends javax.swing.JFrame {
                     model.addRow(new String[]{block.previousHash, block.hash, block.claimHash});
                 }
             } catch (IOException ex) {
-                Logger.getLogger(InsuranceAppUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EnsuranceUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             blockchainLoaded = true;
         } else {
@@ -201,7 +200,7 @@ public class InsuranceAppUI extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "This claim is unique to the blockchain!", "Alert", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (IOException ex) {
-                    Logger.getLogger(InsuranceAppUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(EnsuranceUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 System.out.println("File access cancelled by user.");
@@ -250,7 +249,7 @@ public class InsuranceAppUI extends javax.swing.JFrame {
                     }
                     blockchainLoaded = true;
                 } catch (IOException ex) {
-                    Logger.getLogger(InsuranceAppUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(EnsuranceUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 System.out.println("File access cancelled by user.");
@@ -274,7 +273,7 @@ public class InsuranceAppUI extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Claim added. It is unique to the blockchain!", "Alert", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (IOException ex) {
-                    Logger.getLogger(InsuranceAppUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(EnsuranceUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 System.out.println("File access cancelled by user.");
@@ -299,20 +298,21 @@ public class InsuranceAppUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InsuranceAppUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnsuranceUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InsuranceAppUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnsuranceUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InsuranceAppUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnsuranceUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InsuranceAppUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EnsuranceUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsuranceAppUI().setVisible(true);
+                new EnsuranceUI().setVisible(true);
             }
         });
     }
