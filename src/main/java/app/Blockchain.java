@@ -65,7 +65,7 @@ public class Blockchain {
 		while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}
-		return "";
+		return "<TODO>";
 	}
         
 	
